@@ -29,7 +29,7 @@ function __powerline_user_info_prompt {
     fi
     ;;
   *)
-    if [[ $SSH_CLIENT ]]; then
+    if [[ -n "$SSH_CLIENT" && -z "$_byobu_sourced" ]]; then
       user_info=$USER_INFO_SSH_CHAR$USER@$HOSTNAME
     else
       user_info=$USER
